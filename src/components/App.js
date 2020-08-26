@@ -3,7 +3,9 @@ import '../styling/App.css';
 import { MenuItem, FormControl, Select, Card, CardContent } from "@material-ui/core";
 import DataBox from './dataBox';
 import MapChart from './mapChart';
-import DataTable from './dataTable'
+import DataTable from './dataTable';
+import { sortData } from './util';
+import LineChart from './lineChart';
 
 function App() {
     const [countries, setCountries] = useState([]);
@@ -30,7 +32,8 @@ function App() {
                         }
                     ));
 
-                    setTableData(data);
+                    const sortedData = sortData(data);
+                    setTableData(sortedData);
                     setCountries(countries);
                 })
         };
@@ -79,6 +82,7 @@ function App() {
                     <h3>Live Cases by Country</h3>
                     <DataTable countries={tableData} />
                     <h3>Worldwide new cases</h3>
+                    <LineChart casesType={"cases"} />
                 </CardContent>
             </Card>
         </div>
