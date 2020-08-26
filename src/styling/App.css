@@ -1,4 +1,14 @@
 .app {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 25px;
+}
+
+.main-left {
+    flex: 0.9;
+}
+
+.main-right {
 
 }
 
@@ -7,6 +17,17 @@
     align-items: center;
     margin-bottom: 20px;
     justify-content: space-between;
+}
+
+.app-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+    .app {
+        flex-direction: column;
+    }
 }
 
 

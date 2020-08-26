@@ -1,0 +1,39 @@
+.data-table {
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.data-table tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-table td {
+    padding: 0.5rem;
+}
+
+.data-table tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
