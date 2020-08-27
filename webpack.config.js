@@ -18,6 +18,10 @@ module.exports = {
             {
                 test: /\.(css|less)$/,
                 use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.(gif|svg|jpg|png|map)$/,
+                loader: 'file-loader',
             }
         ]
     },

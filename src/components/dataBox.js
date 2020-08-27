@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from "@material-ui/core";
+import '../styling/dataBox.css';
 
 export default function DataBox({title, cases, total}) {
     return (

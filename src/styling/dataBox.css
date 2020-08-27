@@ -1,0 +1,33 @@
+.data-box {
+    flex: 1;
+}
+
+.data-box:not(:last-child) {
+    margin-right: 10px;
+}
+
+.data-box--selected {
+    border-top: 10px solid greenyellow;
+}
+
+.data-box--red {
+    border-color: red;
+}
+
+.data-box-cases--green {
+    color: lightgreen !important;
+}
+
+.data-box-cases {
+    color: #cc1034;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.data-box-total {
+    color: #6c757d;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    margin-top: 15px !important;
+}

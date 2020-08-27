@@ -47,7 +47,7 @@ const options = {
     },
 };
 
-export default function LineChart({ casesType }) {console.log(casesType);
+export default function LineChart({ casesType }) {
     const [data, setData] = useState({});
 
     const buildChartData = (data, casesType) => {
