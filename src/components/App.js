@@ -4,7 +4,7 @@ import {MenuItem, FormControl, Select, Card, CardContent} from "@material-ui/cor
 import DataBox from './dataBox';
 import MapChart from './mapChart';
 import DataTable from './dataTable';
-import {sortData} from './util';
+import { sortData, prettyPrintStat } from './util';
 import LineChart from './lineChart';
 import 'leaflet/dist/leaflet.css';
 
@@ -16,6 +16,7 @@ function App() {
     const [mapCenter, setMapCenter] = useState({lat: 34.80746, lng: -40.4796});
     const [mapZoom, setMapZoom] = useState(3);
     const [mapCountries, setMapCountries] = useState([]);
+    const [casesType, setCasesType] = useState('cases');
 
     useEffect(() => {
         fetch('https://disease.sh/v3/covid-19/all').then(res => res.json())
@@ -79,19 +80,37 @@ function App() {
                 </div>
 
                 <div className="app-stats">
-                    <DataBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-                    <DataBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-                    <DataBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+                    <DataBox
+                        active={casesType === 'cases'}
+                        onClick={e=>setCasesType("cases")}
+                        casesType={'cases'}
+                        title="Coronavirus Cases"
+                        cases={prettyPrintStat(countryInfo.todayCases)}
+                        total={prettyPrintStat(countryInfo.cases)}/>
+                    <DataBox
+                        active={casesType === 'recovered'}
+                        onClick={e=>setCasesType("recovered")}
+                        casesType={'recovered'}
+                        title="Recovered"
+                        cases={prettyPrintStat(countryInfo.todayRecovered)}
+                        total={prettyPrintStat(countryInfo.recovered)}/>
+                    <DataBox
+                        active={casesType === 'deaths'}
+                        onClick={e=>setCasesType("deaths")}
+                        casesType={'deaths'}
+                        title="Deaths"
+                        cases={prettyPrintStat(countryInfo.todayDeaths)}
+                        total={prettyPrintStat(countryInfo.deaths)}/>
                 </div>
 
-                <MapChart countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
+                <MapChart casesType={casesType} countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
             </div>
             <Card className="main-right">
                 <CardContent>
                     <h3>Live Cases by Country</h3>
                     <DataTable countries={tableData}/>
-                    <h3>Worldwide new cases</h3>
-                    <LineChart casesType={"cases"}/>
+                    <h3 className="line-chart-title">Worldwide new {casesType}</h3>
+                    <LineChart className="line-chart-container" casesType={casesType}/>
                 </CardContent>
             </Card>
         </div>

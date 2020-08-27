@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, CardContent, Typography } from "@material-ui/core";
 import '../styling/dataBox.css';
 
-export default function DataBox({title, cases, total}) {
+export default function DataBox({active, casesType, title, cases, total, ...props}) {
     return (
-        <Card className="data-box" >
+        <Card onClick={props.onClick} className={`data-box ${casesType} ${active && "data-box-selected"}`} >
             <CardContent>
                 <Typography className="data-box-title" color="textSecondary">
                     {title}

@@ -1,25 +1,37 @@
 .data-box {
     flex: 1;
+    cursor: pointer;
+}
+
+.data-box.recovered .data-box-cases {
+    color: forestgreen;
+}
+
+.data-box.deaths .data-box-cases {
+    color: black;
+}
+
+.data-box.cases .data-box-cases {
+    color: #cc1034;
 }
 
 .data-box:not(:last-child) {
     margin-right: 10px;
 }
 
-.data-box--selected {
+.recovered.data-box-selected {
     border-top: 10px solid greenyellow;
 }
 
-.data-box--red {
-    border-color: red;
+.deaths.data-box-selected {
+    border-top: 10px solid darkgray;
 }
 
-.data-box-cases--green {
-    color: lightgreen !important;
+.cases.data-box-selected {
+    border-top: 10px solid red;
 }
 
 .data-box-cases {
-    color: #cc1034;
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 0.5rem;

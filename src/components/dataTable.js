@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styling/dataTable.css';
+import numeral from 'numeral';
 
 export default function DataTable({ countries }) {
     return (
@@ -10,7 +11,9 @@ export default function DataTable({ countries }) {
                 countries.map(({ country, cases}, index)=>(
                 <tr key={index}>
                     <td>{country}</td>
-                    <td>{cases}</td>
+                    <td>
+                        <strong>{numeral(cases).format("0,0")}</strong>
+                    </td>
                 </tr>
             ))
             }

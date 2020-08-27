@@ -47,7 +47,7 @@ const options = {
     },
 };
 
-export default function LineChart({ casesType }) {
+export default function LineChart({ casesType, ...props }) {
     const [data, setData] = useState({});
 
     const buildChartData = (data, casesType) => {
@@ -80,7 +80,7 @@ export default function LineChart({ casesType }) {
     },[casesType]);
 
     return (
-        <div>
+        <div className={props.className}>
             {data?.length > 0 && (
                 <Line data={{ datasets: [
                         {

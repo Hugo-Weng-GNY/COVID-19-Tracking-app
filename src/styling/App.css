@@ -1,7 +1,7 @@
 .app {
     display: flex;
     justify-content: space-evenly;
-    padding: 25px;
+    padding: 22px;
 }
 
 .main-left {
@@ -9,7 +9,22 @@
 }
 
 .main-right {
+    display: flex;
+    flex-direction: column;
+}
 
+.main-right .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.line-chart-title{
+    margin-top: 20px;
+}
+
+.line-chart-container {
+    flex-grow: 1;
 }
 
 .app-header {
@@ -29,6 +44,7 @@
         flex-direction: column;
     }
 }
+
 
 
 
